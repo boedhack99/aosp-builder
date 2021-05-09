@@ -5,6 +5,6 @@ cd /tmp/rom
 
 # Repo init command, that -device,-mips,-darwin,-notdefault part will save you more time and storage to sync, add more according to your rom and choice. Optimization is welcomed! Let's make it quit, and with depth=1 so that no unnecessary things
 # sync rom
-repo init -u git://github.com/crdroidandroid/android.git --depth=1 -b 11.0
+repo init -u git://github.com/ForkLineageOS/android.git --depth=1 -b lineage-18.1
 git clone https://github.com/boedhack/local_manifest.git --depth=1 .repo/local_manifests
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
