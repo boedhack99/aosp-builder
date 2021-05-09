@@ -1,0 +1,23 @@
+env: # Environt variable to pass to all tasks
+    CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
+    CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone repo
+    rclone_config: "ENCRYPTED[9776f10836068bed067bbc9e5f14b78bbc649cb2b2fe8f4e4440584df075d8406147e94a9ff2242f940978f52fb5254f]"
+
+task:
+    name: Buildtest
+    timeout_in: 120m
+    container:
+      image: apon77/aosp:latest
+      cpu: 8
+      memory: 24G
+    download_ccache_background_script:
+      - bash download_ccache
+    sync_script:
+      - bash sync
+    monitor_background_script:
+      - bash monitor
+    build_script:
+      - bash build
+    upload_ccache_script:
+      - bash upload_ccache
+
