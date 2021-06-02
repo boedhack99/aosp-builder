@@ -37,6 +37,6 @@ Your build log must not be yellow marked as "Failed to decrypt some environment 
 13. Later 2 builds should be with 8cpu to collect and upload ccache, also instructed within scripts. This collecting cccahe step (both upload and download) is very important. Also using rclone(own config) is mendatory.  It's highly recommended to use google drive in all kind of cloud transfer for speed. Also don't sync unnecessary repos in sync script. Without these things probably you won't be able to succeed to get a build.
 14. I apologize that, this repo came with some previous ccache. I got that when I was testing. \
 So, for your convenience, https://github.com/Apon77Lab/aosp-builder did fork this repo and did essential commits and got a successful build, which is almost identical to your situation and has no previous ccache. It's highly recommended that you should observe carefully his commits to know what you actually need to do in scripts. For little support, you can contact me here! https://t.me/Apon77Mido
-
+ 
 **Humble request to all not to abuse this system. Happy building!!!**
  
