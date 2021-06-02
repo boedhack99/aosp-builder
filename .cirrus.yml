@@ -4,15 +4,15 @@ env: # Environment variables to pass to all tasks
 
     # For rclone with google drive or any cloud! After first commit pushing, login to https://cirrus-ci.com , click top left corner 3 dot menu, click repository(yourname/aosp-builder) > Repository Settings > Secured Variables > enter content of ~/.config/rclone/rclone.conf (from pc where you setup rclone) > ENCRYPT, copy that ENCRYPTED hash
     # ENCRYPTED variables is unique for every repository, so you cant use my one, create you rclone config https://rclone.org/drive/#making-your-own-client-id
-    rclone_config: "ENCRYPTED[2ae235a6c94975acd8fa413196071833544a9ec981d66843a6176f5093582e8529a2d44c6d41d70a1a8e671c4474ae86]"
+    rclone_config: "ENCRYPTED[80d0a73639f98843c0c8d1a43b1da9df28ba5558cfe5fbd2ff5d877c82bc5e3715aee803d890a1cce37c1bf3c1522436]"
 
 task:
     name: aosp # Project name
     timeout_in: 120m # Otherwise it will timeout at 60m automatically, 120m highest in free account
     container:
       image: apon77/aosp:latest # It has built-in setup environment + repo, aria2, rclone, pigz, username ci, and email ci@ci.ci [You can use your own docker image if you want, or you can use this one too!]
-      cpu: 1  #8 or less cpu for dummy build, 8 cpu for the final build, 8cpu highest for free accounts. Don't try to use more than 8cpu as free user, you may get blocked by ci.
-      memory: 4G # So that we can have ram when needed, 32G highest
+      cpu: 4  #8 or less cpu for dummy build, 8 cpu for the final build, 8cpu highest for free accounts. Don't try to use more than 8cpu as free user, you may get blocked by ci.
+      memory: 16G # So that we can have ram when needed, 32G highest
     download_ccache_background_script: # To download ccache in background
       - ./download_ccache # Ccache download script
     sync_script: # To sync source
