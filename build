@@ -53,7 +53,7 @@ id=544521199 # Your telegram id
 #make bootiamge
 #make init
 
-mka aex -j10 \
+make aex -j10 \
 	&& send_zip=$(up out/target/product/mojito/*zip) && tg $id "Build Succeed!
 $send_zip" \
 	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
