@@ -4,7 +4,7 @@ Build aosp project in docker with Ubuntu 20.04 via ci environments (by [Apon77](
 Thanks to Almighty Who has given mental strength, knowledge, and patience.
  
 Thanks to [Cirrus CI](https://cirrus-ci.com/) for their awesome service!
-
+ 
 I tried to explain every step by comments! Try to read those thoroughly!
 
 [ You can use your own creativity for this whole process, what I did is used the normal process, collected the cache, redownloaded, and re reused it, and for overcoming the time limit first build was done with a timeout from our side to get ccache uploaded. You can do these processes manually too! But I like ci! Let's a ci be ci, hehe. ]
