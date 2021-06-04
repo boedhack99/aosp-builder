@@ -3,7 +3,7 @@ cd /tmp/rom # Depends on where source got synced
 
 # Normal build steps
 . build/envsetup.sh
-brunch havoc_mojito-user
+lunch havoc_mojito-user
 #export ALLOW_MISSING_DEPENDENCIES=true
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
@@ -49,9 +49,9 @@ id=544521199 # Your telegram id
 #make api-stubs-docs || echo no problem
 #make system-api-stubs-docs || echo no problem
 #make test-api-stubs-docs || echo no problem
-#make sepolicy
-#make bootimage
-#make init
+make sepolicy
+make bootimage
+make init
 
 #m aex -j$(nproc --all) \
 	&& send_zip=$(up out/target/product/mojito/*zip) && tg $id "Build Succeed!
