@@ -3,8 +3,8 @@ cd /tmp/rom # Depends on where source got synced
 
 # Normal build steps
 . build/envsetup.sh
-lunch aosp_mojito-user
-export ALLOW_MISSING_DEPENDENCIES=true
+brunch havoc_mojito-user
+#export ALLOW_MISSING_DEPENDENCIES=true
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
@@ -50,10 +50,10 @@ id=544521199 # Your telegram id
 #make system-api-stubs-docs || echo no problem
 #make test-api-stubs-docs || echo no problem
 #make sepolicy
-#make bootiamge
+#make bootimage
 #make init
 
-m aex -j$(nproc --all) \
+#m aex -j$(nproc --all) \
 	&& send_zip=$(up out/target/product/mojito/*zip) && tg $id "Build Succeed!
 $send_zip" \
 	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
