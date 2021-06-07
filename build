@@ -4,7 +4,7 @@ cd /tmp/rom # Depends on where source got synced
 # Normal build steps
 . build/envsetup.sh
 lunch omni_mojito-eng
-#export ALLOW_MISSING_DEPENDENCIES=true
+export ALLOW_MISSING_DEPENDENCIES=true
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
@@ -30,9 +30,6 @@ up(){
 }
 
 # It's recommended to use google drive(rclone) as upload solution for coping with the time limit. Un-comment next 3 lines to upload with rclone in drive. Also change apon and junk according to your config name, uploading folder of drive
-up(){
-	time rclone copy $1 dblenk:rom -P # apon is my rclone config name, 
-}
 
 tg(){
 	bot_api=1710768515:AAEpUOXucT8Regv0NhAB7eMwHZgJ39xgv-M # Your tg bot api, dont use my one haha, it's better to encrypt bot api too.
@@ -54,7 +51,7 @@ id=544521199 # Your telegram id
 #make init
 
 mka recoveryimage -j$(nproc --all) \
-	&& send_img=$(up out/target/product/mojito/*.img) && tg $id "Build Succeed!
+	&& send_zip=$(up out/target/product/mojito/*.zip) && tg $id "Build Succeed!
 $send_img" \
 	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
 ccache -s # Let's print ccache statistics finally
