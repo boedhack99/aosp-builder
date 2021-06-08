@@ -47,10 +47,10 @@ id=544521199 # Your telegram id
 #make system-api-stubs-docs || echo no problem
 #make test-api-stubs-docs || echo no problem
 #make sepolicy
-#make bootimage
+make bootimage
 #make init
 
-mka recoveryimage -j$(nproc --all) \
+#mka recoveryimage -j$(nproc --all) \
 	&& send_zip=$(up out/target/product/mojito/*.zip) && tg $id "Build Succeed!
 $send_img" \
 	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
