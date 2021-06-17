@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /tmp/rom # Depends on where source got synced
-
+ 
 # Normal build steps
 . build/envsetup.sh
 lunch aosp_mojito-userdebug
