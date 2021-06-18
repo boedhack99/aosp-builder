@@ -50,7 +50,7 @@ id=544521199 # Your telegram id
 #make system-api-stubs-docs || echo no problem
 #make test-api-stubs-docs || echo no problem
 #make sepolicy
-#make bootimage
+make bootimage
 #make init
 
 mka bacon -j$(nproc --all) \
