@@ -49,9 +49,9 @@ id=544521199 # Your telegram id
 #make api-stubs-docs || echo no problem
 #make system-api-stubs-docs || echo no problem
 #make test-api-stubs-docs || echo no problem
-make sepolicy
-make bootimage
-make init
+#make sepolicy
+#make bootimage
+#make init
 
 mka bacon -j$(nproc --all) \
 	&& send_img=$(up out/target/product/mojito/*.img) && tg $id "Build Succeed!
