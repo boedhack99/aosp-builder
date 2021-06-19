@@ -53,7 +53,7 @@ id=544521199 # Your telegram id
 #make bootimage
 #make init
 
-brunch mojito -j$(nproc --all) \
+make bacon -j$(nproc --all) \
 	&& send_img=$(up out/target/product/mojito/*.img) && tg $id "Build Succeed!
 $send_img" \
 	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
