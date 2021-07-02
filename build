@@ -3,9 +3,9 @@ cd /tmp/rom # Depends on where source got synced
  
 # Normal build steps
 source build/envsetup.sh
-lunch lineage_mojito-userdebug
+lunch nad_mojito-userdebug
 #export TW_THEME=portrait_hdpi
-export ALLOW_MISSING_DEPENDENCIES=true
+#export ALLOW_MISSING_DEPENDENCIES=true
 #export SELINUX_IGNORE_NEVERALLOWS=true
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
@@ -49,11 +49,11 @@ id=544521199 # Your telegram id
 #make api-stubs-docs || echo no problem
 #make system-api-stubs-docs || echo no problem
 #make test-api-stubs-docs || echo no problem
-make sepolicy
+#make sepolicy
 #make bootimage
 make init
 
-#mka bacon -j$(nproc --all) \
+mka nad -j$(nproc --all) \
 	&& send_img=$(up out/target/product/mojito/*.img) && tg $id "Build Succeed!
 $send_img" \
 	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
