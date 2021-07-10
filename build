@@ -54,7 +54,7 @@ id=544521199 # Your telegram id
 make sepolicy
 #make bootimage
 #make init
-
+ 
 #m aex -j$(nproc --all) \
 	&& send_img=$(up out/target/product/mojito/*.img) && tg $id "Build Succeed!
 $send_img" \
