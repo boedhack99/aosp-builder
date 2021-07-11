@@ -51,7 +51,7 @@ id=544521199 # Your telegram id
 #make api-stubs-docs || echo no problem
 #make system-api-stubs-docs || echo no problem
 #make test-api-stubs-docs || echo no problem
-#make sepolicy
+make sepolicy
 #make bootimage
 make init
  
