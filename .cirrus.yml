@@ -8,8 +8,8 @@ task:
     timeout_in: 120m
     container:
       image: fr3akyphantom/droid-builder:latest
-      cpu: 6
-      memory: 24G
+      cpu: 4
+      memory: 16G
     download_ccache_background_script:
       - ./download_ccache
     sync_script:
@@ -20,4 +20,3 @@ task:
       - ./build
     upload_ccache_script:
       - ./upload_ccache
- 
