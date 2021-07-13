@@ -2,12 +2,15 @@ env:
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: "/tmp/ci"
     rclone_config: "ENCRYPTED[756a035b1056843cfac9b5b4dc0ab3ad017df8e89854c1fc7807dc9ffa3774ce01b18e396eed1e8912adb93d08bdb791]"
+    docker: "ENCRYPTED[89acfc31acbd3c7e14b5123e189aa2ec559e999fed72da9c693e83658a3734364bd5f05930518e46e068b51a218d0f93]"
+    image: "ENCRYPTED[5b1813d8dcf9cfdfdcb466de1f54991348711d9933de95b745bb10dd30556be012ac1a11060747000a231632855304a3]"
+    git_mail: "ENCRYPTED[5993ce293f2d0f33671ca38c9d3dcaa911d9220598e58c2c4c2d91f9547154eb703a16f358725c24b2298837881019cb]"
 
 task:
     name: LineageOS
     timeout_in: 120m
     container:
-      image: ${DOCKER}
+      image: $docker
       cpu: 4
       memory: 16G
     download_ccache_background_script:

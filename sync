@@ -2,7 +2,7 @@
 
 mkdir -p /tmp/rom
 cd /tmp/rom
-git config --global user.email "$GIT_EMAIL"
+git config --global user.email "$git_mail"
 git config --global user.name "boedhack99"
 git config --global credential.helper "cache --timeout=7200"
 echo "git identity setup successfully!"
