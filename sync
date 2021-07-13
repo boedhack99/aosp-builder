@@ -1,14 +1,22 @@
 #!/bin/bash
 
-mkdir -p /tmp/rom
-cd /tmp/rom
+sudo apt-get install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev python -y
+
+sudo apt install openjdk-8-jdk -y
+
+mkdir ~/bin && curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && chmod a+x ~/bin/repo
+
+#cp ../../.bashrc .bashrc
+
+source ~/.bashrc
+
 git config --global user.email "$GIT_MAIL"
 git config --global user.name "boedhack99"
 git config --global credential.helper "cache --timeout=7200"
 echo "git identity setup successfully!"
-git clone https://github.com/boedhack99/scripts --depth=1 --branch master
-scripts/setup/android_build_env.sh >/dev/null
-bash scripts/setup/install_android_sdk.sh >/dev/null
+
+mkdir -p /rom
+cd /rom
 
 repo init -q --no-repo-verify --depth=1 -u git://github.com/LineageOS/android -b lineage-18.1 -g default,-device,-mips,-darwin,-notdefault
 
