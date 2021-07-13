@@ -1,6 +1,8 @@
 #!/bin/bash
 
-sudo apt-get install adb autoconf automake axel bc bison build-essential ccache clang cmake curl expat fastboot flex g++ g++-multilib gawk gcc gcc-multilib git gnupg gperf htop imagemagick  lib32ncurses5-dev lib32z1-dev libtinfo5 libc6-dev libcap-dev libexpat1-dev libgmp-dev '^liblz4-.*' '^liblzma.*' libmpc-dev libmpfr-dev libncurses5-dev libsdl1.2-dev libssl-dev libtool libxml2 libxml2-utils '^lzma.*' lzop maven ncftp ncurses-dev patch patchelf pkg-config pngcrush pngquant python2.7 python-is-python3 python-all-dev re2c schedtool squashfs-tools subversion systemd texinfo unzip w3m xsltproc zip zlib1g-dev lzip libxml-simple-perl apt-utils gh -y
+sudo apt-get install adb autoconf automake axel bc bison build-essential ccache clang cmake curl expat fastboot flex g++ g++-multilib gawk gcc gcc-multilib git gnupg gperf htop imagemagick  lib32ncurses5-dev lib32z1-dev libtinfo5 libc6-dev libcap-dev libexpat1-dev libgmp-dev '^liblz4-.*' '^liblzma.*' libmpc-dev libmpfr-dev libncurses5-dev libsdl1.2-dev libssl-dev libtool libxml2 libxml2-utils '^lzma.*' lzop maven ncftp ncurses-dev patch patchelf pkg-config pngcrush pngquant python2.7 python-is-python3 python-all-dev re2c schedtool squashfs-tools subversion systemd texinfo unzip w3m xsltproc zip zlib1g-dev lzip libxml-simple-perl apt-utils -y
+
+apt update && apt upgrade -y
 
 sudo apt install openjdk-8-jdk -y
 
@@ -15,8 +17,8 @@ git config --global user.name "boedhack99"
 git config --global credential.helper "cache --timeout=7200"
 echo "git identity setup successfully!"
 
-mkdir -p /rom
-cd /rom
+mkdir -p /tmp/rom
+cd /tmp/rom
 
 repo init -q --no-repo-verify --depth=1 -u git://github.com/LineageOS/android -b lineage-18.1 -g default,-device,-mips,-darwin,-notdefault
 
