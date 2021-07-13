@@ -7,7 +7,7 @@ task:
     name: Build
     timeout_in: 120m
     container:
-      image: $IMAGE
+      image: fr3akyphantom/droid-builder:focal
       cpu: 4
       memory: 16G
     download_ccache_background_script:
