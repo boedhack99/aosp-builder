@@ -7,10 +7,11 @@ task:
     name: Build
     timeout_in: 120m
     container:
-      image: cimg/android:30.0
+      image: $IMAGE
       cpu: 4
       memory: 16G
     download_ccache_background_script:
+      - apt-get install aria2 ccache gzip pigz -y
       - ./download_ccache
     sync_script:
       - ./sync

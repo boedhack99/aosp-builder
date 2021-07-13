@@ -9,6 +9,6 @@ env
 url=https://server.boedhack.workers.dev/ccache/ci2/ccache.tgz
 
 cd /tmp
-time axel -a -n 10 $url
+time aria2c $url -x16 -s50
 time tar xf ccache.tgz
 rm -rf ccache.tgz
