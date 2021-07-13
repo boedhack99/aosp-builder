@@ -6,7 +6,7 @@ apt update && apt upgrade -y
 
 sudo apt install openjdk-8-jdk -y
 
-sudo ln -s python3 /usr/bin/env/python
+sudo ln -s python3 /usr/bin/python
 
 mkdir ~/bin && curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && chmod a+x ~/bin/repo
 
