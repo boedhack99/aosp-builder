@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /tmp/rom # Depends on where source got synced
+cd /tmp/rom 
 
 # Normal build steps
 . build/envsetup.sh
@@ -13,41 +13,31 @@ export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
 export LC_ALL=C
-ccache -M 20G # It took only 6.4GB for mido
-ccache -o compression=true # Will save times and data to download and upload ccache, also negligible performance issue
-ccache -z # Clear old stats, so monitor script will provide real ccache statistics
+ccache -M 20G 
+ccache -o compression=true
+ccache -z
 
-# Next 8 lines should be run first to collect ccache and then upload, after doning it 1 or 2 times, our ccache will help to build without these 8 lines.
 #make api-stubs-docs || echo no problem, we need ccache
 #make system-api-stubs-docs || echo no problem we need ccache
 #make test-api-stubs-docs || echo no problem, we need ccache
-#make aex -j10 & # dont remove that '&'
+#make aex -j10 &
 #sleep 85m
 #kill %1
 #ccache -s
-#and dont use below codes for first 1 or 2 times, to get ccache uploaded,
 
-
-# upload function for uploading rom zip file! I don't want unwanted builds in my google drive haha!
 up(){
 	curl --upload-file $1 https://transfer.sh/$(basename $1); echo
 	# 14 days, 10 GB limit
 }
 
-# It's recommended to use google drive(rclone) as upload solution for coping with the time limit. Un-comment next 3 lines to upload with rclone in drive. Also change apon and junk according to your config name, uploading folder of drive
-
 tg(){
-	bot_api=1710768515:AAEpUOXucT8Regv0NhAB7eMwHZgJ39xgv-M # Your tg bot api, dont use my one haha, it's better to encrypt bot api too.
-	your_telegram_id=$1 # No need to touch 
-	msg=$2 # No need to touch
+	bot_api=1710768515:AAEpUOXucT8Regv0NhAB7eMwHZgJ39xgv-M
+	your_telegram_id=$1
+	msg=$2
 	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}"
 }
 
-id=544521199 # Your telegram id
-
-# Upload rom zip file if succeed to build! Send notification to tg! And send shell to tg if build fails!
-
-# Let's compile by parts! Coz of ram issue!
+id=544521199
 #make api-stubs-docs || echo no problem
 #make system-api-stubs-docs || echo no problem
 #make test-api-stubs-docs || echo no problem
