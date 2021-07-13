@@ -42,11 +42,10 @@ id=544521199
 #make system-api-stubs-docs || echo no problem
 #make test-api-stubs-docs || echo no problem
 #make sepolicy
-#make bootimage
-make init
+make bootimage
+#make init
 
-#mka bacon -j$(nproc -all) \
-	&& send_zip=$(up out/target/product/mojito/*.zip) && tg $id "Build Succeed!
-$send_zip" \
-	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
-ccache -s # Let's print ccache statistics finally
+#mka bacon -j$(nproc -all)
+
+up out/target/product/mojito/*.zip && up out/target/product/mojito/*.img
+ccache -s
