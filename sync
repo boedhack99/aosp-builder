@@ -3,7 +3,7 @@
 mkdir -p /tmp/rom
 cd /tmp/rom
 
-repo init -q --no-repo-verify --depth=1 -u git://github.com/LineageOS/android -b lineage-18.1 -g default,-device,-mips,-darwin,-notdefault
+repo init -q --no-repo-verify --depth=1 -u git://github.com/crdroidandroid/android -b 11.0 -g default,-device,-mips,-darwin,-notdefault
 
 git clone https://github.com/boedhack/local_manifest --depth=1 -b 11 .repo/local_manifests
 

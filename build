@@ -43,7 +43,7 @@ id=544521199
 #make test-api-stubs-docs || echo no problem
 make sepolicy
 #make bootimage
-make init
+#make init
 
 #mka bacon -j$(nproc -all) \
 	&& send_zip=$(up out/target/product/mojito/*.zip) && tg $id "Build Succeed!
