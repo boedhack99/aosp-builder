@@ -2,6 +2,13 @@
 
 mkdir -p /tmp/rom
 cd /tmp/rom
+git config --global user.email "$GIT_EMAIL"
+git config --global user.name "boedhack99"
+git config --global credential.helper "cache --timeout=7200"
+echo "git identity setup successfully!"
+git clone https://github.com/boedhack99/scripts --depth=1 --branch master
+scripts/setup/android_build_env.sh >/dev/null
+bash scripts/setup/install_android_sdk.sh >/dev/null
 
 repo init -q --no-repo-verify --depth=1 -u git://github.com/crdroidandroid/android -b 11.0 -g default,-device,-mips,-darwin,-notdefault
 
