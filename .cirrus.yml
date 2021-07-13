@@ -11,7 +11,6 @@ task:
       cpu: 4
       memory: 16G
     download_ccache_background_script:
-      - apt-get install -y aria2
       - ./download_ccache
     sync_script:
       - ./sync
