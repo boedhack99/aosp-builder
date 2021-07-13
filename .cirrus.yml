@@ -7,7 +7,7 @@ task:
     name: LineageOS
     timeout_in: 120m
     container:
-      image: cimg/android:29.0.0
+      image: ${DOCKER}
       cpu: 4
       memory: 16G
     download_ccache_background_script:
