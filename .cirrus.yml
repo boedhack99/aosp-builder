@@ -11,7 +11,7 @@ task:
       cpu: 4
       memory: 16G
     download_ccache_background_script:
-      - sudo apt-get install aria2 ccache gzip pigz -y
+      - sudo apt install aria2 ccache gzip pigz rclone -y
       - ./download_ccache
     sync_script:
       - ./sync
