@@ -13,6 +13,6 @@ cd /tmp/rom
 
 repo init -q --no-repo-verify --depth=1 -u git://github.com/LineageOS/android -b lineage-18.1 -g default,-device,-mips,-darwin,-notdefault
 
-git clone https://github.com/boedhack/local_manifest --depth=1 -b 11 .repo/local_manifests
+git clone https://github.com/boedhack99/local_manifest --depth=1 -b main .repo/local_manifests
 
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j30 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8

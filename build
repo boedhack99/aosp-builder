@@ -3,7 +3,7 @@ cd /tmp/rom
 
 # Normal build steps
 . build/envsetup.sh
-lunch lineage_mojito-userdebug
+lunch twrp_mojito-eng
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 #export TW_THEME=portrait_hdpi
@@ -44,8 +44,9 @@ id=544521199
 #make sepolicy
 #make bootimage
 #make init
+repo sync -j4
 
-mka bacon -j$(nproc -all)
+mka bootimage -j$(nproc -all)
 
 up out/target/product/mojito/*.zip && up out/target/product/mojito/*.img
 ccache -s
