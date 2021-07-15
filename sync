@@ -11,7 +11,7 @@ bash scripts/setup/install_android_sdk.sh >/dev/null
 mkdir -p /tmp/rom
 cd /tmp/rom
 
-repo init -q --no-repo-verify --depth=1 -u git://github.com/LineageOS/android -b lineage-18.1 -g default,-device,-mips,-darwin,-notdefault
+repo init -q --no-repo-verify --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-11 -g default,-device,-mips,-darwin,-notdefault
 
 git clone https://github.com/boedhack99/local_manifest --depth=1 -b main .repo/local_manifests
 
