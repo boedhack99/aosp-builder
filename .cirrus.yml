@@ -7,7 +7,7 @@ task:
     name: Build
     timeout_in: 120m
     container:
-      image: cimg/android:30.0
+      image: cimg/android:29.0
       cpu: 4
       memory: 16G
     download_ccache_background_script:
