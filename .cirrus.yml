@@ -7,7 +7,7 @@ task:
     name: Build
     timeout_in: 120m
     container:
-      image: ubuntu:18.04
+      image: circleci/android:api-30-ndk
       cpu: 4
       memory: 16G
     download_ccache_background_script:
