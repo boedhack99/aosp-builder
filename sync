@@ -11,8 +11,8 @@ bash scripts/setup/install_android_sdk.sh >/dev/null
 mkdir -p /tmp/rom
 cd /tmp/rom
 
-repo init -q --no-repo-verify --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-11 -g default,-device,-mips,-darwin,-notdefault
+repo init -q --no-repo-verify --depth=1 -u git://github.com/Evolution-X/manifest -b tiramisu -g default,-device,-mips,-darwin,-notdefault
 
-git clone https://github.com/boedhack99/local_manifest --depth=1 -b main .repo/local_manifests
+git clone https://github.com/boedhack99/local_manifest --depth=1 -b fog-13 .repo/local_manifests
 
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j30 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
