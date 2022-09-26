@@ -3,9 +3,9 @@ cd /tmp/rom
 
 # Normal build steps
 . build/envsetup.sh
-lunch twrp_mojito-eng
-export SKIP_API_CHECKS=true
-export SKIP_ABI_CHECKS=true
+lunch evolution_fog-userdebug
+#export SKIP_API_CHECKS=true
+#export SKIP_ABI_CHECKS=true
 #export TW_THEME=portrait_hdpi
 export ALLOW_MISSING_DEPENDENCIES=true
 #export SELINUX_IGNORE_NEVERALLOWS=true
@@ -46,7 +46,7 @@ id=544521199
 #make init
 repo sync -j4
 
-mka bootimage -j$(nproc -all)
+make sepolicy -j$(nproc -all)
 
 up out/target/product/mojito/*.zip && up out/target/product/mojito/*.img
 ccache -s
